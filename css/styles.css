@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+* {
+    text-decoration: none;
+}
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #eef9bf;
+}
+.title-bar {
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    color: #75b79e;
+    font-size: 56px;
+    font-family: "Roboto";
+    font-weight: 700;
+}
+img {
+    pointer-events: none;
+}
