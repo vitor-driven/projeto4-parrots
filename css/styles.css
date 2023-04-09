@@ -18,6 +18,50 @@ body {
     font-family: "Roboto";
     font-weight: 700;
 }
+
+.gameArea {
+    max-width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    gap: 34px;
+}
+
 img {
     pointer-events: none;
+    justify-content: center;
+    width: 100px;
+    height: auto;
+}
+
+.card {
+    width: 117px;
+    height: 146px;
+    background-color: #a7e9af;
+    border: 1px solid #99cea8;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card-front {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    backface-visibility: hidden;
+    transform: rotateY("180deg");
+}
+
+.card-back {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    backface-visibility: hidden;
 }
