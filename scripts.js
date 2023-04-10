@@ -46,10 +46,10 @@ function startGame() {
     for (let j = 0; j < cardCount; j++) {
         gameArea.innerHTML += `
         <div class="card">
-            <div class="card-back">
+            <div class="card-face visible">
                 <img src="rsc/back.png" alt="Carta virada para baixo" />
             </div>
-            <div class="card-front">
+            <div class="card-face hidden">
                 <${gameDeck[j]} />
             </div>
         </div>

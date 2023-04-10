@@ -45,23 +45,22 @@ img {
     align-items: center;
     display: flex;
     position: relative;
+}
+
+.card-face {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    backface-visibility: hidden;
     transform-style: preserve-3d;
-    transition: transform 0.5s;
+    transition: all 0.5s;
 }
 
-.card-front {
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    backface-visibility: hidden;
-    transform: rotateY("180deg");
+.hidden {
+    transform: rotateY(180deg);
 }
 
-.card-back {
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    backface-visibility: hidden;
+.visible {
+    transform: rotateY(0deg);
 }
