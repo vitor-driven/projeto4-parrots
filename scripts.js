@@ -8,20 +8,20 @@ let gameArea = document.querySelector(".gameArea");
 gameArea.innerHTML = "";
 
 let cardTypes = [
-    'img src="/rsc/bobrossparrot.gif" alt="Bob Ross"',
-    'img src="/rsc/bobrossparrot.gif" alt="Bob Ross"',
-    'img src="/rsc/explodyparrot.gif" alt="Explosion"',
-    'img src="/rsc/explodyparrot.gif" alt="Explosion"',
-    'img src="/rsc/fiestaparrot.gif" alt="Fiesta"',
-    'img src="/rsc/fiestaparrot.gif" alt="Fiesta"',
-    'img src="/rsc/metalparrot.gif" alt="Metal"',
-    'img src="/rsc/metalparrot.gif" alt="Metal"',
-    'img src="/rsc/revertitparrot.gif" alt="Revert"',
-    'img src="/rsc/revertitparrot.gif" alt="Revert"',
-    'img src="/rsc/tripletsparrot.gif" alt="Triplet"',
-    'img src="/rsc/tripletsparrot.gif" alt="Triplet"',
-    'img src="/rsc/unicornparrot.gif" alt="Unicorn"',
-    'img src="/rsc/unicornparrot.gif" alt="Unicorn"',
+    'img src="./rsc/bobrossparrot.gif" alt="Bob Ross"',
+    'img src="./rsc/bobrossparrot.gif" alt="Bob Ross"',
+    'img src="./rsc/explodyparrot.gif" alt="Explosion"',
+    'img src="./rsc/explodyparrot.gif" alt="Explosion"',
+    'img src="./rsc/fiestaparrot.gif" alt="Fiesta"',
+    'img src="./rsc/fiestaparrot.gif" alt="Fiesta"',
+    'img src="./rsc/metalparrot.gif" alt="Metal"',
+    'img src="./rsc/metalparrot.gif" alt="Metal"',
+    'img src="./rsc/revertitparrot.gif" alt="Revert"',
+    'img src="./rsc/revertitparrot.gif" alt="Revert"',
+    'img src="./rsc/tripletsparrot.gif" alt="Triplet"',
+    'img src="./rsc/tripletsparrot.gif" alt="Triplet"',
+    'img src="./rsc/unicornparrot.gif" alt="Unicorn"',
+    'img src="./rsc/unicornparrot.gif" alt="Unicorn"',
 ];
 
 initialPrompt();
@@ -51,7 +51,7 @@ function startGame() {
         gameArea.innerHTML += `
         <div class="container" data-test="card">
             <div class="card" onClick="selectCard(this)">
-                <img src="rsc/back.png" class="card-back" data-test="face-down-image" alt="Carta virada para baixo" />
+                <img src="./rsc/back.png" class="card-back" data-test="face-down-image" alt="Carta virada para baixo" />
                 <${gameDeck[j]} class="card-front" data-test="face-up-image" />
             </div>
         </div>
