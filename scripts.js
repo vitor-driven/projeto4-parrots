@@ -125,7 +125,7 @@ function gameWon() {
 
 function restartGame() {
     let playAgain;
-    playAgain = prompt("Gostaria de jogar denovo?");
+    playAgain = prompt("Você gostaria de reiniciar a partida? (sim ou não)");
     if (playAgain == "sim") {
         initialPrompt();
     } else if (playAgain != "não") {
