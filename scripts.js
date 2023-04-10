@@ -1,9 +1,9 @@
 let cardCount = 0;
 let firstCard;
 let secondCard;
-let cardIsTurned = false;
 let totalPlays;
-let deck;
+let totalPairs;
+let totalFound;
 let gameArea = document.querySelector(".gameArea");
 gameArea.innerHTML = "";
 
@@ -30,6 +30,7 @@ function initialPrompt() {
     if (cardCount % 2 != 0 || cardCount < 4 || cardCount > 14) {
         return initialPrompt();
     } else {
+        totalPairs = cardCount / 2;
         startGame();
     }
 }
@@ -59,4 +60,47 @@ function startGame() {
 
 function randomize() {
     return Math.random() - 0.5;
+}
+
+function selectCard() {
+    if (gameDisabled == true || this === firstCard) {
+        return;
+    }
+    this.ClassList.add("flipped");
+    if (firstCard === undefined) {
+        firstCard = this;
+        totalPlays++;
+        return;
+    } else {
+        secondCard = this;
+        totalPlays++;
+        checkPair();
+    }
+}
+
+function checkPair() {
+    if (firstCard.innerHTML == secondCard.innerHTML) {
+        foundPair();
+    } else {
+        notPair();
+    }
+    return;
+}
+
+function foundPair() {
+    firstCard.ClassList.add("found");
+    secondCard.ClassList.add("found");
+    totalFound++;
+    if (totalFound == totalPairs) {
+        gameWon();
+    }
+}
+
+function notPair() {
+    firstCard.ClassList.remove("flipped");
+    secondCard.ClassList.remove("flipped");
+}
+
+function gameWon() {
+    alert(`Parabéns! Você ganhou em ${totalPlays} jogadas!`);
 }
