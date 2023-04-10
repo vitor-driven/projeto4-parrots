@@ -29,7 +29,6 @@ body {
 }
 
 img {
-    pointer-events: none;
     justify-content: center;
     width: 100px;
     height: auto;
@@ -45,8 +44,6 @@ img {
     align-items: center;
     display: flex;
     position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
 }
 
 .card-front {
@@ -55,7 +52,8 @@ img {
     display: flex;
     justify-content: center;
     backface-visibility: hidden;
-    transform: rotateY("180deg");
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
 }
 
 .card-back {
@@ -64,4 +62,13 @@ img {
     display: flex;
     justify-content: center;
     backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card.found {
+    pointer-events: none;
+    transform: rotateY(180deg);
 }

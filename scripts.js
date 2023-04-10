@@ -1,9 +1,9 @@
 let cardCount = 0;
-let firstCard;
-let secondCard;
+let firstCard = null;
+let secondCard = null;
 let totalPlays;
-let totalPairs;
 let totalFound;
+let gameDisabled = false;
 let gameArea = document.querySelector(".gameArea");
 gameArea.innerHTML = "";
 
@@ -30,7 +30,8 @@ function initialPrompt() {
     if (cardCount % 2 != 0 || cardCount < 4 || cardCount > 14) {
         return initialPrompt();
     } else {
-        totalPairs = cardCount / 2;
+        totalPlays = 0;
+        totalFound = 0;
         startGame();
     }
 }
@@ -46,12 +47,14 @@ function startGame() {
     // Agora as cartas são criadas na página
     for (let j = 0; j < cardCount; j++) {
         gameArea.innerHTML += `
-        <div class="card">
-            <div class="card-back">
-                <img src="rsc/back.png" alt="Carta virada para baixo" />
-            </div>
-            <div class="card-front">
-                <${gameDeck[j]} />
+        <div class="container">
+            <div class="card" onClick="selectCard(this)">
+                <div class="card-back">
+                    <img src="rsc/back.png" alt="Carta virada para baixo" />
+                </div>
+                <div class="card-front">
+                    <${gameDeck[j]} />
+                </div>
             </div>
         </div>
         `;
@@ -62,17 +65,17 @@ function randomize() {
     return Math.random() - 0.5;
 }
 
-function selectCard() {
-    if (gameDisabled == true || this === firstCard) {
+function selectCard(card) {
+    if (gameDisabled == true || card === firstCard) {
         return;
     }
-    this.ClassList.add("flipped");
-    if (firstCard === undefined) {
-        firstCard = this;
+    card.classList.add("flipped");
+    if (firstCard == null) {
+        firstCard = card;
         totalPlays++;
         return;
     } else {
-        secondCard = this;
+        secondCard = card;
         totalPlays++;
         checkPair();
     }
@@ -84,21 +87,25 @@ function checkPair() {
     } else {
         notPair();
     }
+    firstCard = null;
+    secondCard = null;
     return;
 }
 
 function foundPair() {
-    firstCard.ClassList.add("found");
-    secondCard.ClassList.add("found");
+    firstCard.classList.add("found");
+    secondCard.classList.add("found");
+    firstCard.classList.remove("flipped");
+    secondCard.classList.remove("flipped");
     totalFound++;
-    if (totalFound == totalPairs) {
+    if (totalFound == cardCount / 2) {
         gameWon();
     }
 }
 
 function notPair() {
-    firstCard.ClassList.remove("flipped");
-    secondCard.ClassList.remove("flipped");
+    firstCard.classList.remove("flipped");
+    secondCard.classList.remove("flipped");
 }
 
 function gameWon() {
