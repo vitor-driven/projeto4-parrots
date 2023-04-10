@@ -32,6 +32,8 @@ function initialPrompt() {
     } else {
         totalPlays = 0;
         totalFound = 0;
+        gameDisabled = false;
+        gameArea.innerHTML = "";
         startGame();
     }
 }
@@ -65,6 +67,14 @@ function randomize() {
     return Math.random() - 0.5;
 }
 
+function disableGame() {
+    gameDisabled = true;
+}
+
+function enableGame() {
+    gameDisabled = false;
+}
+
 function selectCard(card) {
     if (gameDisabled == true || card === firstCard) {
         return;
@@ -77,7 +87,11 @@ function selectCard(card) {
     } else {
         secondCard = card;
         totalPlays++;
-        checkPair();
+        disableGame();
+        setTimeout(() => {
+            checkPair();
+            enableGame();
+        }, 1000);
     }
 }
 
@@ -110,4 +124,15 @@ function notPair() {
 
 function gameWon() {
     alert(`Parabéns! Você ganhou em ${totalPlays} jogadas!`);
+    restartGame();
+}
+
+function restartGame() {
+    let playAgain;
+    playAgain = prompt("Gostaria de jogar denovo?");
+    if (playAgain == "sim") {
+        initialPrompt();
+    } else if (playAgain != "não") {
+        return;
+    }
 }
