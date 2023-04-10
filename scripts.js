@@ -49,13 +49,13 @@ function startGame() {
     // Agora as cartas são criadas na página
     for (let j = 0; j < cardCount; j++) {
         gameArea.innerHTML += `
-        <div class="container">
+        <div class="container" data-test="card">
             <div class="card" onClick="selectCard(this)">
                 <div class="card-back">
-                    <img src="rsc/back.png" alt="Carta virada para baixo" />
+                    <img src="rsc/back.png" data-test"face-down-image" alt="Carta virada para baixo" />
                 </div>
                 <div class="card-front">
-                    <${gameDeck[j]} />
+                    <${gameDeck[j]} data-test="face-up-image" />
                 </div>
             </div>
         </div>
@@ -123,6 +123,7 @@ function notPair() {
 }
 
 function gameWon() {
+    clearInterval(runClock());
     alert(`Parabéns! Você ganhou em ${totalPlays} jogadas!`);
     restartGame();
 }

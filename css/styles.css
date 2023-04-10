@@ -8,7 +8,7 @@ body {
     font-family: "Roboto", sans-serif;
     background-color: #eef9bf;
 }
-.title-bar {
+.titleBar {
     display: flex;
     height: 150px;
     justify-content: center;
@@ -82,4 +82,14 @@ img {
 .card.found {
     pointer-events: none;
     transform: rotateY(180deg);
+}
+
+@media (max-width: 614px) {
+    .titleBar {
+        font-size: 36px;
+    }
+    .gameArea {
+        flex-flow: column nowrap;
+        align-items: center;
+    }
 }
