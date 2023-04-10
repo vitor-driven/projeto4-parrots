@@ -51,12 +51,8 @@ function startGame() {
         gameArea.innerHTML += `
         <div class="container" data-test="card">
             <div class="card" onClick="selectCard(this)">
-                <div class="card-back">
-                    <img src="rsc/back.png" data-test"face-down-image" alt="Carta virada para baixo" />
-                </div>
-                <div class="card-front">
-                    <${gameDeck[j]} data-test="face-up-image" />
-                </div>
+                <img src="rsc/back.png" class="card-back" data-test="face-down-image" alt="Carta virada para baixo" />
+                <${gameDeck[j]} class="card-front" data-test="face-up-image" />
             </div>
         </div>
         `;
@@ -123,7 +119,6 @@ function notPair() {
 }
 
 function gameWon() {
-    clearInterval(runClock());
     alert(`Parabéns! Você ganhou em ${totalPlays} jogadas!`);
     restartGame();
 }
